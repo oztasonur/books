@@ -22,8 +22,6 @@ function App() {
       title: newTitle,
     });
 
-    console.log(response);
-
     const updatedBooks = books.map((book) => {
       if (book.id === id) {
         return { ...book, ...response.data };
@@ -49,8 +47,6 @@ function App() {
     const response = await axios.post("http://localhost:3001/books", {
       title,
     });
-
-    console.log(response);
 
     const updatedBooks = [...books, response.data];
     setBooks(updatedBooks);
